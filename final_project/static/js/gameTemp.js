@@ -60,5 +60,8 @@ export async function completeGame() {
 
 export function startPetMech() {
     let petHunger = 100;
-
+    const petBar = document.getElementById('pet-hunger-bar');
+    setInterval(() => {
+        petHunger -= 2;
+    });
 }
