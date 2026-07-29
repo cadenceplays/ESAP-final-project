@@ -1,3 +1,4 @@
+console.log("game.js is running");
 //timer functions
 import{
     startTimer,
@@ -10,6 +11,10 @@ import { renderStage2 } from "./captchas/notNot2.js";
 import { renderStage3 } from "./captchas/evilMath3.js";
 import { renderStage4 } from "./captchas/fakeLoad4.js";
 import { renderStage5 } from "./captchas/gassDevs5.js";
+
+const captchaBox = document.getElementById("captcha-box");
+
+captchaBox.innerText = "JavaScript loaded successfully";
 
 //global variables
 let currentStage = 0;
@@ -38,6 +43,7 @@ function startGame() {
 }
 
 function loadStage(index) {
+    console.log("loading stage")
     if (index >= captchas.length) {
         completeGame();
         return;
@@ -45,10 +51,10 @@ function loadStage(index) {
     //update header
     document.getElementById('stage-count').innerText = `${index + 1} / ${captchas.length}`;
 
-    //const container = document.getElementById('captcha-box');
+    const container = document.getElementById('captcha-box');
 
     container.innerHTML = `<h2>${captchas[index].title}</h2>`;
-
+    console.log("pre-render complete");
     captchas[index].render(container);
 }
 
@@ -84,3 +90,5 @@ async function completeGame() {
         window.location.href = '/leaderboard';
     })
 }
+
+startGame();
