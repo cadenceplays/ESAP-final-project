@@ -1,4 +1,5 @@
-export function renderStage4(container) {
+
+export function renderStage4(container,nextStage) {
     const wrapper = document.createElement('div');
     wrapper.innerHTML = `
         <p>please wait while we verify your browser signature...</p>

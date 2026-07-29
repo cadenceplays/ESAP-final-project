@@ -1,5 +1,6 @@
+
 // evil and scary trivia
-export function renderStage3(container) {
+export function renderStage3(container,nextStage) {
     const wrapper = document.createElement('div');
     wrapper.innerHTML = `
         <p>what is the missing parking spot number?</p>

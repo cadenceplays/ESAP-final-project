@@ -34,6 +34,10 @@ const captchas = [
     render: renderStage3
     }
 ];
+function nextStage() {
+    currentStage++;
+    loadStage(currentStage);
+}
 
 function startGame() {
     currentStage = 0;
@@ -55,13 +59,10 @@ function loadStage(index) {
 
     container.innerHTML = `<h2>${captchas[index].title}</h2>`;
     console.log("pre-render complete");
-    captchas[index].render(container);
+    captchas[index].render(container,nextStage);
 }
 
-function nextStage() {
-    currentStage++;
-    loadStage(currentStage);
-}
+
 
 async function completeGame() {
     
