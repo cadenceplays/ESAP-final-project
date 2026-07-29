@@ -57,3 +57,8 @@ export async function completeGame() {
         window.location.href = '/leaderboard';
     })
 }
+
+export function startPetMech() {
+    let petHunger = 100;
+
+}
