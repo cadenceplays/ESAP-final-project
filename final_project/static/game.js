@@ -147,40 +147,61 @@ function renderStage4(container) {
 // write an essay about how cool and amazing the devs are
 // select all squares with __
 // classic ml test
-// win connect 4 game against ai
-function renderStage5(container) {
-    const board = document.querySelector(".board");
-    const status = document.querySelector(".status");
-    const winner = document.querySelector(".winner");
+// win connect 4 game against ai 
+// TODO: IMPLEMENT THE CONNECT 4 AI OPPONENT
+// function renderStage5(container) {
+//     const board = document.querySelector(".board");
+//     const status = document.querySelector(".status");
+//     const winner = document.querySelector(".winner");
 
-    let rows = 6;
-    let cols = 7; // SIX SEVENNNN
+//     let rows = 6;
+//     let cols = 7; // SIX SEVENNNN
 
-    function createGameBoard() {
-        for (let r = 0; r < rows; r++) {
-            for (let c = 0; c < cols; c++) {
-                const disc = document.createElement("div");
-                disc.classList.add("cell");
-                disc.setAttribute("data-col", c);
-                disc.setAttribute("date-row", r);
-                board.appendChild(disc);
-            }
-        }
-    }
+//     function createGameBoard() {
+//         for (let r = 0; r < rows; r++) {
+//             for (let c = 0; c < cols; c++) {
+//                 const disc = document.createElement("div");
+//                 disc.classList.add("cell");
+//                 disc.setAttribute("data-col", c);
+//                 disc.setAttribute("date-row", r);
+//                 board.appendChild(disc);
+//             }
+//         }
+//     }
 
-    let currPlayer = "red";
-    let isGameOver = false;
+//     let currPlayer = "red";
+//     let isGameOver = false;
 
-    let gameBoard = Array.from({ length: rows }, () => Array(cols).fill(null));
+//     let gameBoard = Array.from({ length: rows }, () => Array(cols).fill(null));
 
-    board.addEventListener("click", function (e) {
-        status.classList.remove()
-    });
+//     board.addEventListener("click", function (e) {
+//         status.classList.remove(`${currPlayer}-elected`);
+//         let col = parseInt(e.target.getAttribute("data-col"));
 
-    function checkWin() {
-        
-    }
-}
+//         if (e.target.classList.contains("cell") && !isGameOver) {
+//             for (let row = rows - 1; row >= 0; row--) {
+//                 let clickedCell = board.querySelector(
+//                     `[data-row="${row}"][data-col="${col}]`
+//                 );
+//                 if (
+//                     !clickedCell.classList.contains("red") && !clickedCell.classList.contains("yellow")
+//                 ) {
+//                     clickedCell.classList.add(currPlayer);
+//                     gameBoard[row][col] = currPlayer;
+
+//                     currPlayer = currPlayer === "red" ? "yellow" : "red";
+
+//                     status.classList.add(`${currPlayer}-selected`);
+//                     break;
+//                 }
+//             }
+//         }
+//     });
+
+//     function checkWin() {
+
+//     }
+// }
 // throughout every stage, remember to feed your pet 
 // wack a mole
 // clicker test
