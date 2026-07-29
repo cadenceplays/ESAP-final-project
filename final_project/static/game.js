@@ -54,7 +54,7 @@ function nextStage() {
 
 async function completeGame() {
     clearInterval(timerInterval);
-    const totalTime = parseFloat(((Date.now() - starTime) / 1000).toFixed(2));
+    const totalTime = parseFloat(((Date.now() - startTime) / 1000).toFixed(2));
 
     const container = document.getElementById('captcha-box');
     
@@ -63,7 +63,7 @@ async function completeGame() {
         <p>good job, you're not a robot ^^ (....maybe..)</p>
         <p>your time: <strong>${totalTime} seconds</strong></p>
         <div class="submit-form">
-            <input type="text" id="username" placeholder="please enter your name here: " maxlength="15>
+            <input type="text" id="username" placeholder="please enter your name here: " maxlength="15">
             <button id="submit-btn">submit high score</button>
         </div>
     `;
@@ -87,7 +87,7 @@ function renderStage1(container) {
     wrapper.innerHTML = `
         <p>check the box to verify that you are NOT a robot:</p>
         <div style="height: 200px; position: relative;" id="runaway-area">
-            <button id="runaway-btn" style="position": absolute; top: 80px; left: 80px;">i am human</button>
+            <button id="runaway-btn" style="position: absolute; top: 80px; left: 80px;">i am human</button>
         </div>
     `;
     
