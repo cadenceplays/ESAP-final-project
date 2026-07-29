@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS leaderboard;
+
+CREATE TABLE leaderboard (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL,
+    completion_time REAL NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

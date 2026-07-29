@@ -1,0 +1,9 @@
+body {
+    display: grid;
+    place-items: center;
+}
+
+.paragraph {
+    color: black;
+    font-family: sans-serif;
+}

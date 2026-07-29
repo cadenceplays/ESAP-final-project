@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>leaderboard</title>
+    </head>
+
+    <body>
+        <h1>Hall of Fame</h1>
+        <ul id="scores-list"></ul>
+
+        <script>
+            fetch('api/leaderboard')
+                .then(res => res.json())
+                .then(data => {
+                    const list = document.getElementbyId('scores-list');
+                    if (data.length == 0) {
+                        list.innerHTML = '<li>no scores yet!</li>'
+                    } else {
+                        data.forEach(item => {
+                            const li = document.createElement('li');
+                            li.textContent = '${item.username}: ${item.completion_time}';
+                            list.appendChild(li);
+                        });
+                    }
+                });
+        </script>
+    </body>
+</html>
