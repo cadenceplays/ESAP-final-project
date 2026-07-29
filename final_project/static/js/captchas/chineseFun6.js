@@ -17,6 +17,7 @@ export function renderStage6(container,nextStage, startGame) {
     input.addEventListener('paste', (e) => {
         e.preventDefault();
         alert("don't even think about it, clanker.")
+        nextStage(true);
     });
 
     document.getElementById('cn-submit').addEventListener('click', () => {

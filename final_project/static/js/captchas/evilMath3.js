@@ -25,7 +25,7 @@ export function renderStage3(container,nextStage, startGame) {
             ${selectedQuestion.problem}
         </div>
         <input type="text" id="math-input" placeholder="answer...">
-        <button id="math-submit">submit</button>
+        <button id="math-submit-btn">submit</button>
     `;
 
     container.appendChild(wrapper);
@@ -38,7 +38,8 @@ export function renderStage3(container,nextStage, startGame) {
         if (userInput === selectedQuestion.answer){
             nextStage();
         } else {
-            failGame(`nope! sorry clanker`);
+            alert(`nope! sorry clanker`);
+            nextStage(true);
         }
     });
 }

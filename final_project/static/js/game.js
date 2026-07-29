@@ -98,7 +98,10 @@ function shuffleArray(array) {
     return shuffled; 
 }
 
-function nextStage() {
+function nextStage(failstage = false) {
+    if (failstage){
+        window.location.replace("/");
+    }
     currentStage++;
     loadStage(currentStage);
 }

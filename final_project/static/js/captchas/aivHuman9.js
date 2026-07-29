@@ -20,7 +20,7 @@ export function renderStage9(container,nextStage, startGame) {
                 nextStage();
             } else {
                 alert("so you admit you're a robot? hmmm")
-                startGame();
+                nextStage(true);
             }
         });
     });
