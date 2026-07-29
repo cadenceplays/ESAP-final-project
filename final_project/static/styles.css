@@ -7,3 +7,29 @@ body {
     color: black;
     font-family: sans-serif;
 }
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    background-color: lightblue; 
+    padding: 20px;
+    border-radius: 10px;
+    border: 10px solid #7ED4FC;
+    margin-bottom: 20px;
+}
+
+.cell{
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.yellow-selected{
+    background-color: yellow;
+}
+.red-selected{
+    background-color: red; 
+}

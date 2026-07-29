@@ -137,16 +137,54 @@ function renderStage3(container) {
 }
 
 // really absurd math problem, text based entry
+function renderStage4(container) {
+}
+
 // select waldo from a really large image
-// wait for loading bar for a really long time (click on small work to resolve)
+// wait for loading bar for a really long time (click on small word to resolve)
 // rotate object to fit reference (multiple rounds of this)
 // tell if a text is ai generated or not
 // write an essay about how cool and amazing the devs are
 // select all squares with __
 // classic ml test
 // win connect 4 game against ai
+function renderStage5(container) {
+    const board = document.querySelector(".board");
+    const status = document.querySelector(".status");
+    const winner = document.querySelector(".winner");
+
+    let rows = 6;
+    let cols = 7; // SIX SEVENNNN
+
+    function createGameBoard() {
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                const disc = document.createElement("div");
+                disc.classList.add("cell");
+                disc.setAttribute("data-col", c);
+                disc.setAttribute("date-row", r);
+                board.appendChild(disc);
+            }
+        }
+    }
+
+    let currPlayer = "red";
+    let isGameOver = false;
+
+    let gameBoard = Array.from({ length: rows }, () => Array(cols).fill(null));
+
+    board.addEventListener("click", function (e) {
+        status.classList.remove()
+    });
+
+    function checkWin() {
+        
+    }
+}
 // throughout every stage, remember to feed your pet 
 // wack a mole
 // clicker test
 // typing test 
 // enter the text in the image but its in simplified chinese
+// click the slider in the right spot in time (gets harder/faster)
+// evil_math sol: 78 (you turn the numbers upside down, it reads 86 _ 88, 89. 90, 91)
