@@ -35,9 +35,11 @@ function loadStage(index) {
         completeGame();
         return;
     }
-
+    //update header
     document.getElementById('stage-count').innerText = `${index + 1} / ${captchas.length}`;
-    const container = document.getElementById('captcha-box');
+
+    //const container = document.getElementById('captcha-box');
+    
     container.innerHTML = `<h2>${captchas[index].title}</h2>`;
 
     captchas[index].render(container);
