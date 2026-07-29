@@ -4,8 +4,15 @@ import{
     stopTimer
 } from "./timer.js"
 
+//import captchas
+import { renderStage1 } from "./captchas/evilButton1.js";
+import { renderStage2 } from "./captchas/notNot2.js";
+import { renderStage3 } from "./captchas/evilMath3.js";
+import { renderStage4 } from "./captchas/fakeLoad4.js";
+import { renderStage5 } from "./captchas/gassDevs5.js";
+
 //global variables
-let currentStage = None;
+let currentStage = 0;
 const captchas = [
     {id: 1,
     title: "stage 1: prove you're human.",
@@ -39,7 +46,7 @@ function loadStage(index) {
     document.getElementById('stage-count').innerText = `${index + 1} / ${captchas.length}`;
 
     //const container = document.getElementById('captcha-box');
-    
+
     container.innerHTML = `<h2>${captchas[index].title}</h2>`;
 
     captchas[index].render(container);
