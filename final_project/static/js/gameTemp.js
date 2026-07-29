@@ -57,11 +57,3 @@ export async function completeGame() {
         window.location.href = '/leaderboard';
     })
 }
-
-export function startPetMech() {
-    let petHunger = 100;
-    const petBar = document.getElementById('pet-hunger-bar');
-    setInterval(() => {
-        petHunger -= 2;
-    });
-}

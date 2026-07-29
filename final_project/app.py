@@ -8,7 +8,7 @@ CORS(app)
 
 DATABASE = 'database.db'
 
-start_time = None #the time in which the user started game
+start_time = 0 #the time in which the user started game
 
 def get_db_connect():
     conn = sqlite3.connect(DATABASE)

@@ -11,6 +11,13 @@ import { renderStage2 } from "./captchas/notNot2.js";
 import { renderStage3 } from "./captchas/evilMath3.js";
 import { renderStage4 } from "./captchas/fakeLoad4.js";
 import { renderStage5 } from "./captchas/gassDevs5.js";
+import { renderStage6 } from "./captchas/chineseFun6.js";
+import { renderStage7 } from "./captchas/evilSlider7.js";
+import { renderStage8 } from "./captchas/rotateImg8.js";
+import { renderStage9 } from "./captchas/aivHuman9.js";
+import { renderStage10 } from "./captchas/ticTacToe10.js";
+import { renderStage11 } from "./captchas/whereWaldo11.js";
+import { renderStage12 } from "./captchas/connectFour12.js";
 
 const captchaBox = document.getElementById("captcha-box");
 
@@ -18,6 +25,8 @@ captchaBox.innerText = "JavaScript loaded successfully";
 
 //global variables
 let currentStage = 0;
+let activeCaptchas = [];
+
 const captchas = [
     {id: 1,
     title: "stage 1: prove you're human.",
@@ -32,8 +41,63 @@ const captchas = [
     {id: 3,
     title: "stage 3: easy trivia.",
     render: renderStage3
-    }
+    },
+
+    {id: 4,
+    title: "stage 4: ",
+    render: renderStage4
+    },
+
+    {id: 5,
+    title: "stage 3: easy trivia.",
+    render: renderStage5
+    },
+
+    {id: 6,
+    title: "stage 3: easy trivia.",
+    render: renderStage6
+    },
+
+    {id: 7,
+    title: "stage 3: easy trivia.",
+    render: renderStage7
+    },
+
+    {id: 8,
+    title: "stage 3: easy trivia.",
+    render: renderStage8
+    },
+
+    {id: 9,
+    title: "stage 3: easy trivia.",
+    render: renderStage9
+    },
+
+    {id: 10,
+    title: "stage 3: easy trivia.",
+    render: renderStage10
+    },
+
+    {id: 11,
+    title: "stage 3: easy trivia.",
+    render: renderStage11
+    },
+
+    {id: 12,
+    title: "stage 3: easy trivia.",
+    render: renderStage12
+    },
 ];
+
+function shuffleArray(array) {
+    let shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled; 
+}
+
 function nextStage() {
     currentStage++;
     loadStage(currentStage);
@@ -93,3 +157,17 @@ async function completeGame() {
 }
 
 startGame();
+
+function startPetMech() {
+    let petHunger = 100;
+    const petBar = document.getElementById('pet-hunger-bar');
+    setInterval(() => {
+        petHunger -= 2;
+        if (petBar) petBar.style.width = `${petHunger}%`;
+
+        if (petHunger <= 0) {
+            alert("your pet starved to death! wtf man >:(");
+            startGame();
+        }
+    }, 1000);
+}

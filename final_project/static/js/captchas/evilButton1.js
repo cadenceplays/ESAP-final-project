@@ -1,6 +1,6 @@
 
 // evil button that doesnt want to touch you
-export function renderStage1(container,nextStage) {
+export function renderStage1(container,nextStage, startGame) {
     const wrapper = document.createElement('div');
     wrapper.innerHTML = `
         <p>check the box to verify that you are NOT a robot:</p>
