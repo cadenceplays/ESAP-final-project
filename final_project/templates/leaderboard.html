@@ -3,27 +3,31 @@
     <head>
         <meta charset="UTF-8">
         <title>leaderboard</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     </head>
+    <div class = "game-container">
+        <body>
+            <h1 class= "game-title">The World's Most Annoying Catcpha</h1>
+            <a href="/" class="button-link"><button type="button">back</button></a>
+            <h1>Hall of Fame</h1>
+            <ul id="scores-list"></ul>
 
-    <body>
-        <h1>Hall of Fame</h1>
-        <ul id="scores-list"></ul>
-
-        <script>
-            fetch('api/leaderboard')
-                .then(res => res.json())
-                .then(data => {
-                    const list = document.getElementbyId('scores-list');
-                    if (data.length == 0) {
-                        list.innerHTML = '<li>no scores yet!</li>'
-                    } else {
-                        data.forEach(item => {
-                            const li = document.createElement('li');
-                            li.textContent = '${item.username}: ${item.completion_time}';
-                            list.appendChild(li);
-                        });
-                    }
-                });
-        </script>
-    </body>
+            <script>
+                fetch('api/leaderboard')
+                    .then(res => res.json())
+                    .then(data => {
+                        const list = document.getElementbyId('scores-list');
+                        if (data.length == 0) {
+                            list.innerHTML = '<li>no scores yet!</li>'
+                        } else {
+                            data.forEach(item => {
+                                const li = document.createElement('li');
+                                li.textContent = '${item.username}: ${item.completion_time}';
+                                list.appendChild(li);
+                            });
+                        }
+                    });
+            </script>
+        </body>
+    </div>
 </html>
