@@ -1,11 +1,14 @@
 import sqlite3
 from flask import Flask, render_template, request,  jsonify
 from flask_cors import CORS # anti-cheat
+from datetime import datetime
 
 app = Flask(__name__)
 CORS(app)
 
 DATABASE = 'database.db'
+
+start_time = None #the time in which the user started game
 
 def get_db_connect():
     conn = sqlite3.connect(DATABASE)
@@ -22,6 +25,10 @@ def init_db():
 @app.route('/')
 def home():
     return render_template('home.html')
+
+@app.route('/game')
+def start():
+    return render_template('start.html')
 
 @app.route('/leaderboard')
 def leaderboard_page():
