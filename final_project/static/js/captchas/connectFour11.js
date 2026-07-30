@@ -54,6 +54,22 @@ export function renderStage11(container,nextStage, failGame) {
                 if (grid[r][c] === p && grid[r+1][c] === p && grid[r+2][c] === p && grid[r+3][c] === p) return true;
             }
         }
+
+        // diagonal checks (down right)
+        for (let r = 0; r < rows - 3; r++) {
+            for (let c = 0; c < cols - 3; c++) {
+                if (grid[r][c] === p && grid[r+1][c+1] === p && grid[r+2][c+2] == p && grid[r+3][c+3] === p) return true;
+            }
+        }
+        
+
+        // diagonal checks (up right)
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols - 3; c++) {
+                if (grid[r][c] === p && grid[r-1][c+1] === p && grid[r-2][c+2] == p && grid[r-3][c+3] === p) return true;
+            }
+        }
+
         return false;
     }
 

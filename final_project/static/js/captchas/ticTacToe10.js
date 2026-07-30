@@ -104,7 +104,7 @@ function tttBot(board, player, button){
     return move;
 }
 
-export function renderStage10(container,nextStage, startGame) {
+export function renderStage10(container,nextStage, failGame) {
     /*
     Main game loop for tic tac toe
     */
@@ -169,7 +169,7 @@ export function renderStage10(container,nextStage, startGame) {
                     console.log("player win")
                 }
                 else{
-                    nextStage(true)
+                    failGame();
                     console.log("player loss")
                 }
             }
