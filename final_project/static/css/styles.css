@@ -40,10 +40,11 @@ ol li:nth-child(3) {
     border-radius: 10px;
 }
 #captcha-img{
-    width: 100px;
-    height: auto;
+    width: auto;
+    height: 100px;
     position: fixed;
-    bottom: 80px;
+    bottom: 0;
+    margin-left: 100px;
 }
 input{
     padding: 14px;
@@ -53,6 +54,11 @@ input{
 .restart{
     position: fixed;
     bottom: 0;
+}
+button.restart{
+    position: fixed;
+    bottom: 0;
+    margin: 0px;
 }
 
 button{
