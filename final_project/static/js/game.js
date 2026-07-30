@@ -28,7 +28,7 @@ let activeCaptchas = [];
 
 //stores all captches in a list of dicts
 const captchas = [
-
+    /*
     {id: 1,
     title: "prove you're human.",
     render: renderStage1
@@ -45,12 +45,12 @@ const captchas = [
     render: renderStage3
     },
 
-
+    */
     {id: 4,
     title: "wait for it...",
     render: renderStage4
     },
-
+    /*
 
     {id: 5,
     title: "am i doing a good job?",
@@ -101,6 +101,7 @@ const captchas = [
     title: "magic fingers",
     render: renderStage14
     },
+    */
 
     
 ];

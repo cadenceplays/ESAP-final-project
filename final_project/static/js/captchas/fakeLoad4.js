@@ -11,7 +11,7 @@
 export function renderStage4(container,nextStage, failGame) {
     const wrapper = document.createElement('div');
     wrapper.innerHTML = `
-        <p style="color: #ffffff;">Please wait while system checks complete...</p>
+        <p style="color: #ffffff;">Please wait while system check completes...</p>
         <p style="color: #e0e0e0; font-size: 14px;">
             Click <strong id="secret-next-word" style="cursor: pointer;">next</strong> when done processing.
         </p>
@@ -31,13 +31,26 @@ export function renderStage4(container,nextStage, failGame) {
 
 
     //fake progress bar loading scheme 
-    
+    //fast, slow, fast, slow, slower, slower...
     let progress = 0;
     const interval = setInterval(() => {
-        if (progress < 90) {
-            progress += Math.random() * 15;
-        } else if (progress < 99) {
-            progress += 0.2; 
+        if (progress < 40) {
+            progress += Math.random() * 8;
+        }
+        else if (progress < 60){
+            progress += Math.random() * 0.5;
+        }
+        else if (progress < 90){
+            progress += Math.random() * 4;
+        }
+        else if (progress < 95){
+            progress += Math.random() * 0.25;
+        }
+        else if (progress < 99) {
+            progress += 0.1; 
+        }
+        else if (progress < 99.9) {
+            progress += 0.01; 
         }
         if (progressBar) progressBar.style.width= `${progress}%`;
     }, 250);
