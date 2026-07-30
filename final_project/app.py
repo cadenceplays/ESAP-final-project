@@ -1,20 +1,25 @@
 import sqlite3
 from flask import Flask, render_template, request,  jsonify
-from flask_cors import CORS # anti-cheat
+from flask_cors import CORS # for external/api requests
 from datetime import datetime
 
 app = Flask(__name__)
-CORS(app)
+CORS(app) # enable cors
 
+# config database file
 DATABASE = 'database.db'
 
-start_time = 0 #the time in which the user started game
+start_time = 0 # the time in which the user started game
 
+# establish connection to sqlite database
+# configure to return dictionary looking objects
 def get_db_connect():
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
     return conn
 
+# init database structure by executing schema.sql
+# create database.db if it doesnt exist yet (if you delete this file, it deletes all leaderboard entries)
 def init_db():
     conn = get_db_connect()
     with open('schema.sql', 'r') as f:
@@ -22,18 +27,24 @@ def init_db():
     conn.commit()
     conn.close()
 
+# render landing page
 @app.route('/')
 def home():
     return render_template('home.html')
 
+# captcha game page (all game js files show up here)
 @app.route('/game')
 def start():
     return render_template('start.html')
 
+# high score leaderboard page
 @app.route('/leaderboard')
 def leaderboard_page():
     return render_template('leaderboard.html')
 
+# fetch top 10 highscores in database.db leaderboard
+# return json array sorted by completion time in ascending order (fastest = #1)
+# display on leaderboard
 @app.route('/api/leaderboard', methods=['GET'])
 def get_leaderboard():
     conn = get_db_connect()
@@ -42,22 +53,30 @@ def get_leaderboard():
     ).fetchall()
     conn.close()
 
+    # convert sqlite row object into python dict for json
     leaderboard_data = [dict(row) for row in scores]
     return jsonify(leaderboard_data), 200
 
+# handle high score submissions sent with json post payload
+# validate input before inserting into database
 @app.route('/api/submit-score', methods=['POST'])
 def submit_score():
     data = request.get_json()
 
+    # validate payload structure
     if not data or 'username' not in data or 'time' not in data:
         return jsonify({'error': 'invalid payload. "username" and "time" required.'}), 400
 
+    # clean/default username if empty
     username = data['username'].strip() or "anon"
+
+    # validate completion time
     try:
         completion_time = float(data['time'])
     except ValueError:
         return jsonify({'error': 'invalid time'}), 400
 
+    # save validated score to database
     conn = get_db_connect()
     conn.execute(
         'INSERT INTO leaderboard (username, completion_time) VALUES (?, ?)', (username, completion_time)
@@ -69,6 +88,9 @@ def submit_score():
 
 if __name__ == '__main__':
     import os
+    # automatically init database tables if file is missing
     if not os.path.exists(DATABASE):
         init_db()
+
+    # TODO: remove dev server
     app.run(debug=True)

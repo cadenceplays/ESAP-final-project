@@ -1,4 +1,5 @@
 console.log("game.js is running");
+
 //timer functions
 import{
     startTimer,
@@ -17,17 +18,16 @@ import { renderStage8 } from "./captchas/rotateImg8.js";
 import { renderStage9 } from "./captchas/aivHuman9.js";
 import { renderStage10 } from "./captchas/ticTacToe10.js";
 import { renderStage11 } from "./captchas/connectFour11.js";
-
-const captchaBox = document.getElementById("captcha-box");
-
-captchaBox.innerText = "JavaScript loaded successfully";
+import { renderStage12 } from "./captchas/findDog12.js";
+import { renderStage13 } from "./captchas/aiArt13.js";
+//import { renderStage14 } from "./captchas/goFast14.js";
 
 //global variables
 let currentStage = 0;
 let activeCaptchas = [];
 
 const captchas = [
-    {id: 1,
+    /*{id: 1,
     title: "prove you're human.",
     render: renderStage1
     },
@@ -81,6 +81,21 @@ const captchas = [
     title: "connect 4",
     render: renderStage11
     },
+
+    {id: 12,
+    title: "doggo or muffin?",
+    render: renderStage12
+    },*/
+
+    {id: 13,
+    title: "ai or human made?",
+    render: renderStage13
+    },
+
+    /*{id: 14,
+    title: "magic fingers",
+    render: renderStage14
+    },*/
     
 ];
 
@@ -127,6 +142,7 @@ function loadStage(index) {
     }
 
     const container = document.getElementById('captcha-box');
+
     container.innerHTML = `<h2>${activeCaptchas[index].title}</h2>`;
     
     // Render current stage & pass nextStage + failGame callbacks
@@ -162,20 +178,8 @@ async function completeGame() {
     })
 }
 
-window.addEventListener('DOMContentLoaded', startGame);
-
-function startPetMech() {
-    let petHunger = 100;
-    const petBar = document.getElementById('pet-hunger-bar');
-    setInterval(() => {
-        petHunger -= 2;
-        if (petBar) petBar.style.width = `${petHunger}%`;
-
-        if (petHunger <= 0) {
-            alert("your pet starved to death! wtf man >:(");
-            startGame();
-        }
-    }, 1000);
+if (document.readState === 'loading') {
+    window.addEventListener('DOMContentLoaded', startGame);
+} else {
+    startGame();
 }
-
-startGame();
