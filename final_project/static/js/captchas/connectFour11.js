@@ -1,4 +1,4 @@
-export function renderStage12(container,nextStage, failGame) {
+export function renderStage11(container,nextStage, failGame) {
     const rows = 6;
     const cols = 7;
     let grid = Array.from({ length: rows }, () => Array(cols).fill(null));

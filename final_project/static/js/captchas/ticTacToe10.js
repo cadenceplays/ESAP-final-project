@@ -175,7 +175,7 @@ export function renderStage10(container,nextStage, startGame) {
                     console.log("player win")
                 }
                 else{
-                    //nextStage(true)
+                    nextStage(true)
                     console.log("player loss")
                 }
             }
