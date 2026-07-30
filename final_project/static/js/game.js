@@ -26,6 +26,7 @@ import { renderStage13 } from "./captchas/aiArt13.js";
 let currentStage = 0;
 let activeCaptchas = [];
 
+//stores all captches in a list of dicts
 const captchas = [
     /*{id: 1,
     title: "prove you're human.",
@@ -98,7 +99,13 @@ const captchas = [
     },*/
     
 ];
-
+/**
+ * Takes in an array then returs a shuffled version of the array
+ * 
+ *  @param {Array} array - the array you want to be shuffled
+ *  @returns {Array} a shuffled version of the input
+ * 
+ */
 function shuffleArray(array) {
     let shuffled = [...array];
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -108,6 +115,12 @@ function shuffleArray(array) {
     return shuffled; 
 }
 
+/**
+ * Goes to the next stage 
+ * 
+ *  @param {boolean} [failstage] - if true, will redirect user to the start page
+ * 
+ */
 function nextStage(failstage = false) {
     if (failstage){
         window.location.replace("/");
@@ -116,6 +129,13 @@ function nextStage(failstage = false) {
     loadStage(currentStage);
 }
 
+/**
+ * Starts the game, setting current stage to zero, shuffling the captchas,
+ * loading the first stage, and starting the timer that measures how long
+ * the user takes to complete the capcthas 
+ * 
+ */
+
 function startGame() {
     currentStage = 0;
     activeCaptchas = shuffleArray(captchas);
@@ -123,11 +143,22 @@ function startGame() {
     loadStage(currentStage);
 }
 
+/**
+ * plays an alert and then restarts the player if they mess up on 
+ * a captcha
+ * 
+ */
 function failGame() {
     alert("nice try, clanker!");
     startGame();
 }
-
+/**
+ * loads the next stage, detetcing if the game is over, and updating displays 
+ * 
+ *  @param {number} index - the index in the list of dicts that repersents the stage
+ *  @returns {void} when the game ends 
+ * 
+ */
 function loadStage(index) {
     console.log("loading stage")
     if (index >= activeCaptchas.length) {
@@ -148,7 +179,10 @@ function loadStage(index) {
     // Render current stage & pass nextStage + failGame callbacks
     activeCaptchas[index].render(container, nextStage, failGame);
 }
-
+/**
+ *  Allows the player to sumbit their final time
+ * 
+ */
 async function completeGame() {
     
     const totalTime = stopTimer();

@@ -30,16 +30,27 @@ def init_db():
 # render landing page
 @app.route('/')
 def home():
+    '''
+    Renders the home page
+    '''
     return render_template('home.html')
 
 # captcha game page (all game js files show up here)
 @app.route('/game')
 def start():
+    '''
+    Renders the game page, this is the link where 
+    the game happens
+    '''
     return render_template('start.html')
 
 # high score leaderboard page
 @app.route('/leaderboard')
 def leaderboard_page():
+    '''
+    Leaderboard page, displays all recorded times.
+    Gives different color to top 3 places 
+    '''
     return render_template('leaderboard.html')
 
 # fetch top 10 highscores in database.db leaderboard

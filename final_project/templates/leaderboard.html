@@ -7,11 +7,23 @@
     </head>
     <body>
         <div class = "game-container">
+
+            <!-- Game title -->
             <h1 class= "game-title no-status">The World's Most Annoying Catcpha</h1>
             
+            <!-- leader board display -->
             <h1 id = "hall-of-fame">Hall of Fame</h1>
             <ol id="scores-list"></ol>
+
+            <!-- button back to home page -->
             <a href="/" class="button-link"><button type="button">back</button></a>
+
+            <!-- flavour text, joke contact info/ copy right-->
+            <p  style="margin-top: 100px;">Captcha Game©©©©©©©©©©©</p>
+            <p>Contact Info: </p>
+            <p>please don't contact us</p>
+
+            <!-- fetches leaderboard data from data base -->
             <script>
                 fetch('api/leaderboard')
                     .then(res => res.json())
