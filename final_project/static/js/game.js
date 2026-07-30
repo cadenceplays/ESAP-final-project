@@ -159,7 +159,7 @@ async function completeGame() {
     })
 }
 
-startGame();
+
 
 function startPetMech() {
     let petHunger = 100;
@@ -174,3 +174,5 @@ function startPetMech() {
         }
     }, 1000);
 }
+
+startGame();
