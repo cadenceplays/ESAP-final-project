@@ -72,7 +72,7 @@ function is_draw(board){
     return true;
 } 
 function is_end(board){
-    return (is_draw(board) || (find_winner != "_"));
+    return (is_draw(board) || (find_winner(board) != "_"));
 }
 function is_empty(board,location){
     const row = location[0];
@@ -86,10 +86,6 @@ function play_move(board, player, move){
     const row = move[0];
     const col = move[1];
     board[row][col] = player;
-    if(player == "O"){
-        return "X";
-    }
-    return "O";
 }
 function get_moves(board){
     /*
@@ -106,10 +102,12 @@ function get_moves(board){
     }
     return moves
 }
-function tttBot(board, player){
+function tttBot(board, player, button){
+    console.log("ttt bot move")
     const moves = get_moves(board);
     const move = moves[0];
     play_move(board, player, move);
+    return move;
 }
 
 export function renderStage10(container,nextStage, startGame) {
@@ -122,17 +120,17 @@ export function renderStage10(container,nextStage, startGame) {
     const wrapper = document.createElement('div');
     wrapper.innerHTML = `
         <p>Tic Tac Toe:</p>
-        <button class = "ticTacToe" id="ttt(0,0)"></button>
-        <button class = "ticTacToe" id="ttt(0,1)"></button>
-        <button class = "ticTacToe" id="ttt(0,2)"></button>
+        <button class = "ticTacToe" id="ttt(0,0)">_</button>
+        <button class = "ticTacToe" id="ttt(0,1)">_</button>
+        <button class = "ticTacToe" id="ttt(0,2)">_</button>
         <br>
-        <button class = "ticTacToe" id="ttt(1,0)"></button>
-        <button class = "ticTacToe" id="ttt(1,1)"></button>
-        <button class = "ticTacToe" id="ttt(1,2)"></button>
+        <button class = "ticTacToe" id="ttt(1,0)">_</button>
+        <button class = "ticTacToe" id="ttt(1,1)">_</button>
+        <button class = "ticTacToe" id="ttt(1,2)">_</button>
         <br>
-        <button class = "ticTacToe" id="ttt(2,0)"></button>
-        <button class = "ticTacToe" id="ttt(2,1)"></button>
-        <button class = "ticTacToe" id="ttt(2,2)"></button>
+        <button class = "ticTacToe" id="ttt(2,0)">_</button>
+        <button class = "ticTacToe" id="ttt(2,1)">_</button>
+        <button class = "ticTacToe" id="ttt(2,2)">_</button>
     `;
 
     container.appendChild(wrapper);
@@ -148,24 +146,43 @@ export function renderStage10(container,nextStage, startGame) {
     const ttt9 = document.getElementById('ttt(2,2)');
     const buttons = [ttt1,ttt2,ttt3,ttt4,ttt5,ttt6,ttt7,ttt8,ttt9];
     const coords = get_moves(board);
-    
+
+    console.log(
+        board[0].join(" ") + "\n" +
+        board[1].join(" ") + "\n" +
+        board[2].join(" ")
+    );
+
     for(let i = 0; i<9; i++){
         buttons[i].addEventListener('click', () => {
+
             if(is_empty(board,coords[i])){
-                play_move(board,turn,cooords[i])
-                tttBot(board,turn)
+                buttons[i].textContent = "X";
+                turn = "X";
+                play_move(board,turn,coords[i]);
+                turn ="O";
+                let move = tttBot(board,turn,buttons[i])
+                buttons[move[0]*3+move[1]].textContent = "O"
+            }
+            console.log(
+                board[0].join(" ") + "\n" +
+                board[1].join(" ") + "\n" +
+                board[2].join(" ")
+            );
+            if(is_end(board) == true){
+                if(find_winner(board) == "X"){
+                    nextStage();
+                    console.log("player win")
+                }
+                else{
+                    //nextStage(true)
+                    console.log("player loss")
+                }
             }
 
         });
     }
-    if(is_end() == true){
-        if(find_winner == "X"){
-            nextStage();
-        }
-        else{
-            nextStage(true)
-        }
-    }
+    
 
 
 }
