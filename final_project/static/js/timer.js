@@ -22,3 +22,7 @@ export function stopTimer(){
     return parseFloat(((Date.now() - startTime) / 1000).toFixed(2));
 
 }
+
+export function countDown(time){
+    
+}

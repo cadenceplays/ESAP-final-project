@@ -39,7 +39,16 @@ ol li:nth-child(3) {
     padding: 20px;
     border-radius: 10px;
 }
-
+#captcha-img{
+    width: 100px;
+    height: auto;
+    position: fixed;
+    bottom: 80px;
+}
+input{
+    padding: 14px;
+    border-radius: 10px;
+}
 
 .restart{
     position: fixed;
