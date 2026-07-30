@@ -23,6 +23,8 @@ export function stopTimer(){
 
 }
 
+let countDownStartTime = null;
+let timerInterval = null;
 export function countDown(time){
-    
+
 }
