@@ -37,7 +37,7 @@ const captchas = [
     title: "stage 2: confirm intent.",
     render: renderStage2
     },
-    
+    /*
     {id: 3,
     title: "stage 3: easy trivia.",
     render: renderStage3
@@ -87,7 +87,7 @@ const captchas = [
     title: "stage 3: easy trivia.",
     render: renderStage12
     },
-    
+    */
 ];
 
 function shuffleArray(array) {
