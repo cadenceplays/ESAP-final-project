@@ -1,7 +1,43 @@
+ol{
+    background-color: #244a8b;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 10px;
+}
+
+ol li:nth-child(1) {
+  color: goldenrod;
+  font-weight: 700;
+}
+
+ol li:nth-child(2) {
+  color: silver;
+  font-weight: 600;
+}
+
+ol li:nth-child(3) {
+  color: #CD7F32;
+  font-weight: 500;
+}
+
+#hall-of-fame{
+    text-align: center;
+    padding: 20px;
+    margin: 0px;
+    border-width: 5px;
+    border-color: #4472C4;
+    border: solid;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
 #captcha-box{
     background-color: #4472C4;
     color: white;
     padding: 20px;
+    border-radius: 10px;
 }
 
 
@@ -19,10 +55,12 @@ button{
     font-size: 20px;
     padding: 10px;
     margin: 5px;
+    border-radius: 10px;
 }
 
 .game-container{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
 }
 
 .game-title{
@@ -31,6 +69,11 @@ button{
     color: white;
     padding: 20px;
     margin: 0px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.no-status{
+    border-radius: 10px;
 }
 .status-bar{
     text-align: center;
@@ -39,18 +82,22 @@ button{
     padding: 0px;
     padding-bottom: 10px;
     margin-bottom: 20px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 .stage-header{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: white;
     color: black;
     padding: 20px;
+    border-radius: 10px;
 }
 .stage-text{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: #4472C4;
     color: white;
     padding: 20px;
+    border-radius: 10px;
 }
 
 body {
