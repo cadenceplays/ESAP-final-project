@@ -5,13 +5,13 @@
         <title>leaderboard</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     </head>
-    <div class = "game-container">
-        <body>
-            <h1 class= "game-title">The World's Most Annoying Catcpha</h1>
+    <body>
+        <div class = "game-container">
+            <h1 class= "game-title no-status">The World's Most Annoying Catcpha</h1>
+            
+            <h1 id = "hall-of-fame">Hall of Fame</h1>
+            <ol id="scores-list"></ol>
             <a href="/" class="button-link"><button type="button">back</button></a>
-            <h1>Hall of Fame</h1>
-            <ul id="scores-list"></ul>
-
             <script>
                 fetch('api/leaderboard')
                     .then(res => res.json())
@@ -28,6 +28,6 @@
                         }
                     });
             </script>
-        </body>
-    </div>
+        </div>
+    </body>
 </html>
