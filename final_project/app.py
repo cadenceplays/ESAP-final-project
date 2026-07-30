@@ -24,14 +24,25 @@ def init_db():
 
 @app.route('/')
 def home():
+    '''
+    Renders the home page
+    '''
     return render_template('home.html')
 
 @app.route('/game')
 def start():
+    '''
+    Renders the game page, this is the link where 
+    the game happens
+    '''
     return render_template('start.html')
 
 @app.route('/leaderboard')
 def leaderboard_page():
+    '''
+    Leaderboard page, displays all recorded times.
+    Gives different color to top 3 places 
+    '''
     return render_template('leaderboard.html')
 
 @app.route('/api/leaderboard', methods=['GET'])

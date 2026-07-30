@@ -9,6 +9,7 @@
     <body>
         <div class = "game-container">
             <header>
+                <!-- Game title and status bar -->
                 <h1 class = "game-title">The World's Most Annoying Captcha</h1>
 
                 <div class = "status-bar">
@@ -16,20 +17,23 @@
                     <span>time: <strong id="timer-display">0.0s</strong></span>
                 </div>
             </header>
-
+            <!-- this is where the captchas are displayed-->
             <main id="captcha-box">
             </main>
+
+            <!-- flavour text, joke contact info/ copy right-->
             <p  style="margin-top: 100px;">Captcha Game©©©©©©©©©©©</p>
             <p>Contact Info: </p>
             <p>please don't contact us</p>
             
+            <!-- restart button + decoration stuck to bottom of the page-->
             <a href="/" class="button-link restart"><button class = "restart" type="button">Restart</button></a>
             <img id = "captcha-img" src="static/images/image.png" alt="Captcha Logos">
         </div>
-        
+        <!-- runs the game -->
         <script
-         type="module"
-         src="{{ url_for('static', filename='js/game.js') }}"
-         ></script>
+            type="module"
+            src="{{ url_for('static', filename='js/game.js') }}"
+        ></script>
     </body>
 </html>
