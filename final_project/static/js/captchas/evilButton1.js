@@ -21,9 +21,13 @@ export function renderStage1(container,nextStage, failGame) {
     
     container.appendChild(wrapper);
 
+    //the submit button 
     const btn = document.getElementById('runaway-btn');
+
+    //area the button is constained to
     const area = document.getElementById('runaway-area');
 
+    //moves the button when you mouseover it
     btn.addEventListener('mouseover', () => {
         console.log("mouse detected")
         

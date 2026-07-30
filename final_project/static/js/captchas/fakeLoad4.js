@@ -11,16 +11,16 @@
 export function renderStage4(container,nextStage, failGame) {
     const wrapper = document.createElement('div');
     wrapper.innerHTML = `
-        <p style="color: #333;">Please wait while system checks complete...</p>
-        <p style="color: #555; font-size: 14px;">
-            Click <strong id="secret-next-word" style="cursor: pointer; text-decoration: underline; color: #0056b3;">next</strong> when done processing.
+        <p style="color: #ffffff;">Please wait while system checks complete...</p>
+        <p style="color: #e0e0e0; font-size: 14px;">
+            Click <strong id="secret-next-word" style="cursor: pointer;">next</strong> when done processing.
         </p>
         
         <div style="width: 100%; background: #e0e0e0; height: 22px; border-radius: 11px; overflow: hidden; margin: 15px 0; border: 1px solid #ccc;">
             <div id="fake-progress-bar" style="width: 0%; height: 100%; background: #28a745; transition: width 0.3s linear;"></div>
         </div>
 
-        <button id="fake-next-btn" style="padding: 8px 16px;" disabled>Next</button>
+        <button id="fake-next-btn" style="padding: 8px 16px;" >Next</button>
     `;
 
     container.appendChild(wrapper);
@@ -29,6 +29,9 @@ export function renderStage4(container,nextStage, failGame) {
     const fakeBtn = document.getElementById('fake-next-btn');
     const secretWord = document.getElementById('secret-next-word');
 
+
+    //fake progress bar loading scheme 
+    
     let progress = 0;
     const interval = setInterval(() => {
         if (progress < 90) {
@@ -39,11 +42,13 @@ export function renderStage4(container,nextStage, failGame) {
         if (progressBar) progressBar.style.width= `${progress}%`;
     }, 250);
 
+    //passes if you click the next text
     secretWord.addEventListener('click', () => {
         clearInterval(interval);
         nextStage();
     })
 
+    // fails if the fake next button is clicked
     fakeBtn.addEventListener('click', () => {
         clearInterval(interval);
         failGame();

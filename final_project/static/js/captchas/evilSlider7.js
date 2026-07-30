@@ -22,16 +22,20 @@ export function renderStage7(container,nextStage, failGame) {
     container.appendChild(wrapper);
 
     const pin = document.getElementById("slider-pin");
+
+    // info about the slider
     let pos = 0;
     let direction = 1;
     let speed = 2;
 
+    //updates the position of the green bar
     const interval = setInterval(() => {
         pos += speed * direction;
         if (pos >= 98 || pos <= 0) direction *= -1;
         pin.style.left = `${pos}%`;
     }, 20);
 
+    //check if the bar was in the right spot
     document.getElementById("slider-stop-btn").addEventListener('click', () => {
         clearInterval(interval);
         
