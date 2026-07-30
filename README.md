@@ -39,8 +39,11 @@ The app should open in your browser tab.
 
 - Which reqs we did, where you can find them in the code:
 
-We used a SQLite database to store the leaderboard entries, and it doesn't restart whenever you reload the page. The code for this is located in schema.sql and leaderboard.html. The POST endpoint is in /api/submit-score in app.py. 
+We used a SQLite database to store the leaderboard entries. This means that the leaderboard does not reset when the website refreshes. The leaderboard stores the name and time to complete for every player, with the name being entered after the player finishes the game, than ranks the players by their completion time.  The code for this is located in schema.sql and leaderboard.html. 
 
-wilson help me i cant write 
+The POST endpoint is in /api/submit-score in app.py. The posting allows for users to sumbit their time, while also preventing them from staying on that page and sumbiting the same multiple times. 
+
 
 - Known limitations:
+
+The bots in the captchas (namely tic-tac-toe and connect 4) do not have a proper AI. While they make moves, neither has a proper algorithim to make these moves. The tic-tac-toe bot chooses the first move possible (going from left to right, then top to bottom) and the connect 4 bot simply moves at random. 
