@@ -1,10 +1,12 @@
+// bar not loading 
+
 export function renderStage7(container,nextStage, failGame) {
     const wrapper = document.createElement('div');
     wrapper.innerHTML = `
         <p>click when the bar is inside the green zone:</p>
         <div style="position:relative; width:100%; height:30px; background:#ddd; border-radius:5px; margin:20px 0;">
             <div style="position:absolute; left:40%; width:10%; height:100%; background:#4caf50;"></div>
-            <div id="slider-pin" style="position:absolute"; left:0%; width:5px; height:100%; background:red;"></div>
+            <div id="slider-pin" style="position:absolute; left:0%; width:5px; height:100%; background:red;"></div>
         </div>
         <button id="slider-stop-btn">stop</button>
     `;
@@ -28,7 +30,6 @@ export function renderStage7(container,nextStage, failGame) {
         if (pos >= 40 && pos <= 50) {
             nextStage();
         } else {
-            alert(`whoops, guess you're a clanker.`)
             failGame(); 
         }
     });

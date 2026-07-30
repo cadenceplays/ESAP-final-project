@@ -16,7 +16,6 @@ export function renderStage2(container,nextStage, failGame) {
     });
 
     document.getElementById('yes-btn').addEventListener('click', () => {
-        alert("nice try clanker");
         failGame();
     });
 }
