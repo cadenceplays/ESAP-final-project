@@ -1,3 +1,13 @@
+/**
+ * Main render function, renders the captcha 
+ * 
+ * Figure out which of the text options is ai, and which is human to prorgess
+ * 
+ *  @param {HTMLElement} container- where the captcah is creates
+ *  @param {Function} nextStage - function that moves on to the next stage
+ *  @param {Function} failGame - function that restarts if the player messes up
+ * 
+ */
 export function renderStage9(container,nextStage, failGame) {
     const wrapper = document.createElement('div');
     wrapper.innerHTML = `

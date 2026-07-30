@@ -1,4 +1,13 @@
-// clicker/typing test
+/**
+ * Main render function, renders the captcha 
+ * 
+ * Click as fast as you can to pass this stage
+ * 
+ *  @param {HTMLElement} container- where the captcah is creates
+ *  @param {Function} nextStage - function that moves on to the next stage
+ *  @param {Function} failGame - function that restarts if the player messes up
+ * 
+ */
 
 export function renderStage14(container,nextStage, failGame) {
     let score = 0;

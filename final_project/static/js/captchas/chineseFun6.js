@@ -1,3 +1,13 @@
+/**
+ * Main render function, renders the captcha 
+ * 
+ * Enter in the Chinese text correctly to progress
+ * 
+ *  @param {HTMLElement} container- where the captcah is creates
+ *  @param {Function} nextStage - function that moves on to the next stage
+ *  @param {Function} failGame - function that restarts if the player messes up
+ * 
+ */
 export function renderStage6(container,nextStage, failGame) {
     const targetText = "我是一个真实的人。";
     const wrapper = document.createElement('div');

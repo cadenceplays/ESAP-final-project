@@ -1,8 +1,7 @@
 /**
- * Main render function, renders the catchpa 
+ * Main render function, renders the captcha 
  * 
- * are you sure?
- * 'click on me if you're not not not not not not a robot' --> if you click on it, you fail lmao
+ * Just a bit of not not shenanigans (answer is no)
  * 
  *  @param {HTMLElement} container- where the captcah is creates
  *  @param {Function} nextStage - function that moves on to the next stage

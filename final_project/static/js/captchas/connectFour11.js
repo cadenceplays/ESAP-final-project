@@ -1,3 +1,13 @@
+/**
+ * Main render function, renders the captcha 
+ * 
+ * beat the bot at connect 4 to progress
+ * 
+ *  @param {HTMLElement} container- where the captcah is creates
+ *  @param {Function} nextStage - function that moves on to the next stage
+ *  @param {Function} failGame - function that restarts if the player messes up
+ * 
+ */
 export function renderStage11(container,nextStage, failGame) {
     const rows = 6;
     const cols = 7;

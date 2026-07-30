@@ -156,7 +156,9 @@ function tttBot(board, player){
     return move;
 }
 /**
- * Main render function, renders the board 
+ * Main render function
+ * 
+ * Tic Tac Toe, beat the AI to progress 
  * 
  *  @param {HTMLElement} container- where the captcah is creates
  *  @param {Function} nextStage - function that moves on to the next stage

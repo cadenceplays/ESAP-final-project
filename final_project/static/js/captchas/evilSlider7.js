@@ -1,5 +1,13 @@
-// bar not loading 
-
+/**
+ * Main render function, renders the captcha 
+ * 
+ * Click when the bar is in the green zone
+ * 
+ *  @param {HTMLElement} container- where the captcah is creates
+ *  @param {Function} nextStage - function that moves on to the next stage
+ *  @param {Function} failGame - function that restarts if the player messes up
+ * 
+ */
 export function renderStage7(container,nextStage, failGame) {
     const wrapper = document.createElement('div');
     wrapper.innerHTML = `

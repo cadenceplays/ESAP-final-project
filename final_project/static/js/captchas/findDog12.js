@@ -1,3 +1,13 @@
+/**
+ * Main render function, renders the captcha 
+ * 
+ * Select the dogs, not the muffins
+ * 
+ *  @param {HTMLElement} container- where the captcah is creates
+ *  @param {Function} nextStage - function that moves on to the next stage
+ *  @param {Function} failGame - function that restarts if the player messes up
+ * 
+ */
 export function renderStage12(container,nextStage, failGame) {
     // layout:
     // 0 | 1 | 2 | 3

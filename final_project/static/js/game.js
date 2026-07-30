@@ -32,6 +32,7 @@ const captchas = [
     title: "prove you're human.",
     render: renderStage1
     },
+    /*
 
     {id: 2,
     title: "confirm intent.",
@@ -97,6 +98,7 @@ const captchas = [
     title: "magic fingers",
     render: renderStage14
     },
+    */
     
 ];
 /**

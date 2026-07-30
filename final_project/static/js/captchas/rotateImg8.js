@@ -1,5 +1,7 @@
 /**
- * Main render function, renders the catchpa 
+ * Main render function, renders the captcha 
+ * 
+ * Roatate until the image is upright 
  * 
  *  @param {HTMLElement} container- where the captcah is creates
  *  @param {Function} nextStage - function that moves on to the next stage

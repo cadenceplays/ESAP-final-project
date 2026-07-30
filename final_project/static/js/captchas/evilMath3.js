@@ -1,5 +1,5 @@
 
-// evil and scary trivia
+//bank of possible questions 
 const mathQuestions = [
     {
         problem: "16 | 06 | 68 | 88 | [ ? ] | 98",
@@ -19,7 +19,18 @@ const mathQuestions = [
     }
 ];
 
+/**
+ * Main render function, renders the captcha 
+ * 
+ * Answer the randomly chosen math question corretcly to pass
+ * 
+ *  @param {HTMLElement} container- where the captcah is creates
+ *  @param {Function} nextStage - function that moves on to the next stage
+ *  @param {Function} failGame - function that restarts if the player messes up
+ * 
+ */
 export function renderStage3(container,nextStage, failGame) {
+    //randomly chooses a question 
     const selectedQuestion = mathQuestions[Math.floor(Math.random() * mathQuestions.length)];
 
     const wrapper = document.createElement('div');
@@ -37,6 +48,7 @@ export function renderStage3(container,nextStage, failGame) {
     const submitBtn = document.getElementById('math-submit-btn');
     const input = document.getElementById('math-answer-input');
 
+    //checks if the answer is right
     submitBtn.addEventListener('click', () => {
         const userVal = input.value.trim();
         if (userVal === selectedQuestion.answer) {
