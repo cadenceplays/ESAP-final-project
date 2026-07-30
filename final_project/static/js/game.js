@@ -37,7 +37,7 @@ const captchas = [
     title: "stage 2: confirm intent.",
     render: renderStage2
     },
-
+    
     {id: 3,
     title: "stage 3: easy trivia.",
     render: renderStage3
@@ -87,6 +87,7 @@ const captchas = [
     title: "stage 3: easy trivia.",
     render: renderStage12
     },
+    
 ];
 
 function shuffleArray(array) {
@@ -133,7 +134,7 @@ function loadStage(index) {
 
 async function completeGame() {
     
-    const totalTime = stopTimer;
+    const totalTime = stopTimer();
     const container = document.getElementById('captcha-box');
     
     container.innerHTML = `
@@ -141,10 +142,11 @@ async function completeGame() {
         <p>good job, you're not a robot ^^ (....maybe..)</p>
         <p>your time: <strong>${totalTime} seconds</strong></p>
         <div class="submit-form">
-            <input type="text" id="username" placeholder="please enter your name here: " maxlength="15>
+            <input type="text" id="username" placeholder="please enter your name here: " maxlength="15">
             <button id="submit-btn">submit high score</button>
         </div>
     `;
+
 
     document.getElementById('submit-btn').addEventListener('click', async() => {
         const name = document.getElementById('username').value || 'anon';

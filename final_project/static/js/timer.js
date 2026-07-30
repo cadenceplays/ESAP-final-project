@@ -13,6 +13,6 @@ export function startTimer(){
 
 export function stopTimer(){
     clearInterval(timerInterval);
-    const totalTime = parseFloat(((Date.now() - starTime) / 1000).toFixed(2));
+    const totalTime = parseFloat(((Date.now() - startTime) / 1000).toFixed(2));
     return totalTime;
 }
