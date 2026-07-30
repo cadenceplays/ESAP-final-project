@@ -6,58 +6,52 @@ function find_winner(board){
     if ((board[0][0] == board[0][1]) &&
         (board[0][1] == board[0][2]) && 
         (board[0][0] != "_")){
-
+        console.log("horiz win")
         return board[0][0];
     }
     if ((board[1][0] == board[1][1]) &&
         (board[1][1] == board[1][2]) && 
         (board[1][0] != "_")){
-        
-        return board[0][0];
+        console.log("horiz win")
+        return board[1][0];
     }
     if ((board[2][0] == board[2][1]) &&
         (board[2][1] == board[2][2]) && 
         (board[2][0] != "_")){
-        
-        return board[0][0];
+        console.log("horiz win")
+        return board[2][0];
     }
     //vertical
     if ((board[0][0] == board[1][0]) &&
         (board[1][0] == board[2][0]) && 
         (board[0][0] != "_")){
-
+        console.log("vert win")
         return board[0][0];
     }
     if ((board[0][1] == board[1][1]) &&
         (board[1][1] == board[2][1]) && 
         (board[0][1] != "_")){
 
-        return board[0][0];
+        return board[0][1];
     }
     if ((board[0][2] == board[1][2]) &&
         (board[1][2] == board[2][2]) && 
         (board[0][2] != "_")){
-
-        return board[0][0];
-    }
-    if ((board[0][0] == board[1][0]) &&
-        (board[1][0] == board[2][0]) && 
-        (board[0][0] != "_")){
-
-        return board[0][0];
+        console.log("vert win")
+        return board[0][2];
     }
     //diagonal 
     if ((board[0][0] == board[1][1]) &&
         (board[1][1] == board[2][2]) && 
         (board[0][0] != "_")){
-
+        console.log("diag win")
         return board[0][0];
     }
     if ((board[0][2] == board[1][1]) &&
         (board[1][1] == board[2][0]) && 
         (board[0][2] != "_")){
-
-        return board[0][0];
+        console.log("diag win")
+        return board[0][2];
     }
     return "_"; // means no winner was found
 }
