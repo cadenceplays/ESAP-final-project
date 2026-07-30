@@ -28,18 +28,66 @@ let currentStage = 0;
 let activeCaptchas = [];
 
 const captchas = [
-    { id: 1, title: "Prove You're Human", render: renderStage1 },
-    { id: 2, title: "Confirm Intent", render: renderStage2 },
-    { id: 3, title: "Easy Trivia", render: renderStage3 },
-    { id: 4, title: "Browser Verification", render: renderStage4 },
-    { id: 5, title: "Dev Appreciation", render: renderStage5 },
-    { id: 6, title: "Chinese Characters", render: renderStage6 },
-    { id: 7, title: "Precision Slider", render: renderStage7 },
-    { id: 8, title: "Alignment", render: renderStage8 },
-    { id: 9, title: "AI Detection", render: renderStage9 },
-    { id: 10, title: "Final Boss", render: renderStage10 },
-    { id: 11, title: "Calibration", render: renderStage11 },
-    { id: 12, title: "Final Gate", render: renderStage12 }
+    {id: 1,
+    title: "stage 1: prove you're human.",
+    render: renderStage1
+    },
+
+    {id: 2,
+    title: "stage 2: confirm intent.",
+    render: renderStage2
+    },
+    
+    {id: 3,
+    title: "stage 3: easy trivia.",
+    render: renderStage3
+    },
+
+    {id: 4,
+    title: "stage 4: ",
+    render: renderStage4
+    },
+
+    {id: 5,
+    title: "stage 3: easy trivia.",
+    render: renderStage5
+    },
+
+    {id: 6,
+    title: "stage 3: easy trivia.",
+    render: renderStage6
+    },
+
+    {id: 7,
+    title: "stage 3: easy trivia.",
+    render: renderStage7
+    },
+
+    {id: 8,
+    title: "stage 3: easy trivia.",
+    render: renderStage8
+    },
+
+    {id: 9,
+    title: "stage 3: easy trivia.",
+    render: renderStage9
+    },
+
+    {id: 10,
+    title: "stage 3: easy trivia.",
+    render: renderStage10
+    },
+
+    {id: 11,
+    title: "stage 3: easy trivia.",
+    render: renderStage11
+    },
+
+    {id: 12,
+    title: "stage 3: easy trivia.",
+    render: renderStage12
+    },
+    
 ];
 
 function shuffleArray(array) {
@@ -101,10 +149,11 @@ async function completeGame() {
         <p>good job, you're not a robot ^^ (....maybe..)</p>
         <p>your time: <strong>${totalTime} seconds</strong></p>
         <div class="submit-form">
-            <input type="text" id="username" placeholder="please enter your name here: " maxlength="15>
+            <input type="text" id="username" placeholder="please enter your name here: " maxlength="15">
             <button id="submit-btn">submit high score</button>
         </div>
     `;
+
 
     document.getElementById('submit-btn').addEventListener('click', async() => {
         const name = document.getElementById('username').value || 'anon';
@@ -134,3 +183,5 @@ function startPetMech() {
         }
     }, 1000);
 }
+
+startGame();

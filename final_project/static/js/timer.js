@@ -18,6 +18,10 @@ export function startTimer(){
 
 export function stopTimer(){
     clearInterval(timerInterval);
-    if (!startTime) return 0.0;
-    return parseFloat(((Date.now() - startTime) / 1000).toFixed(2));
+    //figure out which version is better tmr...
+    //if (!startTime) return 0.0;
+    //return parseFloat(((Date.now() - startTime) / 1000).toFixed(2));
+    
+    //const totalTime = parseFloat(((Date.now() - startTime) / 1000).toFixed(2));
+    //return totalTime;
 }
