@@ -100,7 +100,7 @@ const captchas = [
     
 ];
 /**
- * Takes in an array then returs a shuffled version of the array
+ * Takes in an array then returns a shuffled version of the array
  * 
  *  @param {Array} array - the array you want to be shuffled
  *  @returns {Array} a shuffled version of the input

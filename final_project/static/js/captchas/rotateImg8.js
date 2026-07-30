@@ -1,6 +1,17 @@
+/**
+ * Main render function, renders the catchpa 
+ * 
+ *  @param {HTMLElement} container- where the captcah is creates
+ *  @param {Function} nextStage - function that moves on to the next stage
+ *  @param {Function} failGame - function that restarts if the player messes up
+ * 
+ */
 export function renderStage8(container,nextStage, failGame) {
+    //default roatation state 
     let rotation = 135;
 
+
+    //html 
     const wrapper = document.createElement('div');
     wrapper.className = 'captcha-stage';
     wrapper.innerHTML = `
@@ -24,16 +35,19 @@ export function renderStage8(container,nextStage, failGame) {
 
     const item = document.getElementById('rotatable-item');
 
+    //rotate left button
     document.getElementById('rotate-left-btn').addEventListener('click', () => {
         rotation = (rotation - 45 + 360) % 360;
         item.style.transform = `rotate(${rotation}deg)`;
     });
 
+    //rotate right button 
     document.getElementById('rotate-right-btn').addEventListener('click', () => {
         rotation = (rotation + 45) % 360;
         item.style.transform = `rotate(${rotation}deg)`;
     });
 
+    //submission
     document.getElementById('rotate-confirm-btn').addEventListener('click', () => {
         // Upright is 0 degrees (or 360)
         if (rotation === 0) {

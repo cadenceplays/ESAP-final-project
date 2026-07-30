@@ -1,5 +1,4 @@
 
-// text box not appearing
 export function renderStage5(container,nextStage, failGame) {
     const wrapper = document.createElement('div');
     wrapper.innerHTML =  `
