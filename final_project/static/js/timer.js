@@ -26,5 +26,16 @@ export function stopTimer(){
 let countDownStartTime = null;
 let countDownTimerInterval = null;
 export function countDown(time){
+    startTime = Date.now()
+    const display = document.getElementById('timer-display');
 
+    if (timerInterval) clearInterval(timerInterval);
+
+    // update live timer display every 100ms
+    timerInterval = setInterval(() => {
+        if (display && startTime){
+            const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+            display.innerText = `${elapsed}s`;
+        }
+    }, 100);
 }
