@@ -15,31 +15,35 @@ const mathQuestions = [
     }
 ];
 
-export function renderStage3(container,nextStage, startGame) {
+export function renderStage3(container,nextStage, failGame) {
     const selectedQuestion = mathQuestions[Math.floor(Math.random() * mathQuestions.length)];
 
     const wrapper = document.createElement('div');
     wrapper.innerHTML = `
         <p>solve the following problem:</p>
-        <div style="font-size: 20px; font-weight: bold; margin: 15px 0;">
-            ${selectedQuestion.problem}
+        <div style="font-size: 20px; font-weight: bold; margin: 15px 0; background: #eee; padding: 10px; border-radius: 5px;">
+            ${q.problem}
         </div>
-        <input type="text" id="math-input" placeholder="answer...">
-        <button id="math-submit-btn">submit</button>
+        <input type="text" id="math-answer-input" placeholder="answer..." style="padding: 8px;">
+        <button id="math-submit-btn" style="padding: 8px 16px;">submit</button>
     `;
 
     container.appendChild(wrapper);
 
-    const submitBtn = document.getElementById('math-submit-btn')
+    const submitBtn = document.getElementById('math-submit-btn');
+    const input = document.getElementById('manth-answer-input');
 
     submitBtn.addEventListener('click', () => {
-        const userInput = document.getElementById('math-input').value.trim();
-
-        if (userInput === selectedQuestion.answer){
+        const userVal = input.value.trim();
+        if (userVal === q.answer) {
             nextStage();
         } else {
-            alert(`nope! sorry clanker`);
-            nextStage(true);
+            alert('wrong! nice try, clanker');
+            if (typeof failGame === 'function') {
+                failGame();
+            } else {
+                location.reload();
+            }
         }
     });
 }

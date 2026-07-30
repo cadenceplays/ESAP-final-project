@@ -1,46 +1,42 @@
 
-export function renderStage4(container,nextStage, startGame) {
+export function renderStage4(container,nextStage, failGame) {
     const wrapper = document.createElement('div');
     wrapper.innerHTML = `
-        <p>please wait while we verify your browser signature...</p>
-        <p><small>click next when done processing.</small></p>
-
-        <div style="width: 100%, background: #ddd; height: 20px; border-radius: 10px; overflow: hidden; margin: 15px 0;">
-            <div id="progress-bar" style="width: 0%; height: 100%; background: #4caf50; transition: width 0.2s;"></div>
+        <p style="color: #333;">Please wait while system checks complete...</p>
+        <p style="color: #555; font-size: 14px;">
+            Click <strong id="secret-next-word" style="cursor: pointer; text-decoration: underline; color: #0056b3;">next</strong> when done processing.
+        </p>
+        
+        <div style="width: 100%; background: #e0e0e0; height: 22px; border-radius: 11px; overflow: hidden; margin: 15px 0; border: 1px solid #ccc;">
+            <div id="fake-progress-bar" style="width: 0%; height: 100%; background: #28a745; transition: width 0.3s linear;"></div>
         </div>
 
-        <button id="fake-next-btn" style="padding: 10px 20px; margin-top: 10px;" disabled>next stage</button>
+        <button id="fake-next-btn" style="padding: 8px 16px;" disabled>Next</button>
     `;
 
     container.appendChild(wrapper);
 
-    const bar = document.getElementById('progress-bar');
+    const progressBar = document.getElementById('fake-progress-bar');
     const fakeBtn = document.getElementById('fake-next-btn');
+    const secretWord = document.getElementById('secret-next-word');
 
     let progress = 0;
     const interval = setInterval(() => {
         if (progress < 90) {
             progress += Math.random() * 15;
         } else if (progress < 99) {
-            progress += 0.5; 
+            progress += 0.2; 
         }
-        bar.style.width = `${progress}%`;
-    }, 300);
+        if (progressBar) progressBar.style.width= `${progress}%`;
+    }, 250);
 
-    const textNode = wrapper.querySelectorAll('strong');
-    textNode.forEach(node => {
-        if (node.innerText.toLowerCase() === 'next') {
-            node.style.cursor = 'pointer';
-            node.style.textDecoration = 'underline';
-            node.addEventListener('click', () => {
-                clearInterval(interval);
-                nextStage();
-            });
-        }
-    });
+    secretWord.addEventListener('click', () => {
+        clearInterval(interval);
+        nextStage();
+    })
 
     fakeBtn.addEventListener('click', () => {
-        alert("verification incomplete! restarting load sequence....")
-        progress = 0;
+        clearInterval(interval);
+        failGame();
     });
 }

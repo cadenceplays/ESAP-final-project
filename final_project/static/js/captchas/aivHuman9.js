@@ -1,4 +1,4 @@
-export function renderStage9(container,nextStage, startGame) {
+export function renderStage9(container,nextStage, failGame) {
     const wrapper = document.createElement('div');
     wrapper.innerHTML = `
         <p>select the text written by a <strong>HUMAN</strong>:</p>
@@ -20,7 +20,7 @@ export function renderStage9(container,nextStage, startGame) {
                 nextStage();
             } else {
                 alert("so you admit you're a robot? hmmm")
-                nextStage(true);
+                failGame();
             }
         });
     });

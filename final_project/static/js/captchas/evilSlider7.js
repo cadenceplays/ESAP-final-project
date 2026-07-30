@@ -1,4 +1,4 @@
-export function renderStage7(container,nextStage, startGame) {
+export function renderStage7(container,nextStage, failGame) {
     const wrapper = document.createElement('div');
     wrapper.innerHTML = `
         <p>click when the bar is inside the green zone:</p>
@@ -29,7 +29,7 @@ export function renderStage7(container,nextStage, startGame) {
             nextStage();
         } else {
             alert(`whoops, guess you're a clanker.`)
-            loadStage(currentStage); 
+            failGame(); 
         }
     });
 }

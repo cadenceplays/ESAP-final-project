@@ -1,13 +1,17 @@
-export function renderStage6(container,nextStage, startGame) {
+export function renderStage6(container,nextStage, failGame) {
     const targetText = "我是一个真实的人。";
     const wrapper = document.createElement('div');
 
     wrapper.innerHTML = `
         <p>escribe las palabras en el cuadro de abajo: </p>
-        <h3 style="background: #eee; padding: 10px; display: inline-block; user-select: none;">${targetText}</h3>
+        
+        <div style="background: #e0e0e0; padding: 12px 20px; display: inline-block; border-radius: 4px; margin: 10px 0;">
+            <span style="font-size: 28px; font-weight: bold; color: #000000; letter-spacing: 4px; user-select: none;">${targetText}</span>
+        </div>
         <br>
-        <input type="text" id="cn-input" placeholder="type characters here..." style="margin-top:10px;">
-        <button id="cn-submit">submit</button>
+        <input type="text" id="cn-input" placeholder="type characters here..." style="padding: 8px; font-size: 16px; margin-top: 10px;">
+        <br>
+        <button id="cn-submit" style="margin-top: 10px; padding: 8px 16px;">submit</button>
     `;
 
     container.appendChild(wrapper);
@@ -17,7 +21,6 @@ export function renderStage6(container,nextStage, startGame) {
     input.addEventListener('paste', (e) => {
         e.preventDefault();
         alert("don't even think about it, clanker.")
-        nextStage(true);
     });
 
     document.getElementById('cn-submit').addEventListener('click', () => {
@@ -25,7 +28,7 @@ export function renderStage6(container,nextStage, startGame) {
             nextStage();
         } else {
             alert("try again next time, clanker!");
-            startGame(); 
+            failGame(); 
         }
     });
 }
