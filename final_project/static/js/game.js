@@ -20,7 +20,7 @@ import { renderStage10 } from "./captchas/ticTacToe10.js";
 import { renderStage11 } from "./captchas/connectFour11.js";
 import { renderStage12 } from "./captchas/findDog12.js";
 import { renderStage13 } from "./captchas/aiArt13.js";
-//import { renderStage14 } from "./captchas/goFast14.js";
+import { renderStage14 } from "./captchas/goFast14.js";
 
 //global variables
 let currentStage = 0;
@@ -28,7 +28,7 @@ let activeCaptchas = [];
 
 //stores all captches in a list of dicts
 const captchas = [
-    /*{id: 1,
+    {id: 1,
     title: "prove you're human.",
     render: renderStage1
     },
@@ -86,17 +86,17 @@ const captchas = [
     {id: 12,
     title: "doggo or muffin?",
     render: renderStage12
-    },*/
+    },
 
     {id: 13,
     title: "ai or human made?",
     render: renderStage13
     },
 
-    /*{id: 14,
+    {id: 14,
     title: "magic fingers",
     render: renderStage14
-    },*/
+    },
     
 ];
 /**
@@ -193,7 +193,7 @@ async function completeGame() {
         <p>good job, you're not a robot ^^ (....maybe..)</p>
         <p>your time: <strong>${totalTime} seconds</strong></p>
         <div class="submit-form">
-            <input type="text" id="username" placeholder="please enter your name here: " maxlength="15">
+            <input type="text" id="username" placeholder="please enter your name" maxlength="15">
             <button id="submit-btn">submit high score</button>
         </div>
     `;
