@@ -24,7 +24,7 @@ export function stopTimer(){
 }
 
 let countDownStartTime = null;
-let timerInterval = null;
+let countDownTimerInterval = null;
 export function countDown(time){
 
 }
