@@ -1,6 +1,6 @@
 // are you sure?
 // 'click on me if you're not not not not not not a robot' --> if you click on it, you fail lmao
-export function renderStage2(container,nextStage, startGame) {
+export function renderStage2(container,nextStage, failGame) {
     const wrapper = document.createElement('div');
     wrapper.innerHTML = `
         <p>are you <em>ABSOLUTELY SURE</em> you're not not not not not not a robot????</p>
@@ -17,6 +17,6 @@ export function renderStage2(container,nextStage, startGame) {
 
     document.getElementById('yes-btn').addEventListener('click', () => {
         alert("nice try clanker");
-        startGame();
+        failGame();
     });
 }

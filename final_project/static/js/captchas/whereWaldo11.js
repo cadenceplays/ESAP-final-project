@@ -1,3 +1,3 @@
-export function renderStage11(container,nextStage, startGame) {
+export function renderStage11(container,nextStage, failGame) {
     
 }

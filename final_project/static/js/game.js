@@ -28,65 +28,18 @@ let currentStage = 0;
 let activeCaptchas = [];
 
 const captchas = [
-    {id: 1,
-    title: "stage 1: prove you're human.",
-    render: renderStage1
-    },
-
-    {id: 2,
-    title: "stage 2: confirm intent.",
-    render: renderStage2
-    },
-
-    {id: 3,
-    title: "stage 3: easy trivia.",
-    render: renderStage3
-    },
-
-    {id: 4,
-    title: "stage 4: ",
-    render: renderStage4
-    },
-
-    {id: 5,
-    title: "stage 3: easy trivia.",
-    render: renderStage5
-    },
-
-    {id: 6,
-    title: "stage 3: easy trivia.",
-    render: renderStage6
-    },
-
-    {id: 7,
-    title: "stage 3: easy trivia.",
-    render: renderStage7
-    },
-
-    {id: 8,
-    title: "stage 3: easy trivia.",
-    render: renderStage8
-    },
-
-    {id: 9,
-    title: "stage 3: easy trivia.",
-    render: renderStage9
-    },
-
-    {id: 10,
-    title: "stage 3: easy trivia.",
-    render: renderStage10
-    },
-
-    {id: 11,
-    title: "stage 3: easy trivia.",
-    render: renderStage11
-    },
-
-    {id: 12,
-    title: "stage 3: easy trivia.",
-    render: renderStage12
-    },
+    { id: 1, title: "Prove You're Human", render: renderStage1 },
+    { id: 2, title: "Confirm Intent", render: renderStage2 },
+    { id: 3, title: "Easy Trivia", render: renderStage3 },
+    { id: 4, title: "Browser Verification", render: renderStage4 },
+    { id: 5, title: "Dev Appreciation", render: renderStage5 },
+    { id: 6, title: "Chinese Characters", render: renderStage6 },
+    { id: 7, title: "Precision Slider", render: renderStage7 },
+    { id: 8, title: "Alignment", render: renderStage8 },
+    { id: 9, title: "AI Detection", render: renderStage9 },
+    { id: 10, title: "Final Boss", render: renderStage10 },
+    { id: 11, title: "Calibration", render: renderStage11 },
+    { id: 12, title: "Final Gate", render: renderStage12 }
 ];
 
 function shuffleArray(array) {
@@ -108,32 +61,39 @@ function nextStage(failstage = false) {
 
 function startGame() {
     currentStage = 0;
+    activeCaptchas = shuffleArray(captchas);
     startTimer();
-
     loadStage(currentStage);
+}
+
+function failGame() {
+    alert("nice try, clanker!");
+    startGame();
 }
 
 function loadStage(index) {
     console.log("loading stage")
-    if (index >= captchas.length) {
+    if (index >= activeCaptchas.length) {
         completeGame();
         return;
     }
-    //update header
-    document.getElementById('stage-count').innerText = `${index + 1} / ${captchas.length}`;
+    
+    // Update Stage Counter
+    const stageDisplay = document.getElementById('stage-count');
+    if (stageDisplay) {
+        stageDisplay.innerText = `${index + 1} / ${activeCaptchas.length}`;
+    }
 
     const container = document.getElementById('captcha-box');
-
-    container.innerHTML = `<h2>${captchas[index].title}</h2>`;
-    console.log("pre-render complete");
-    captchas[index].render(container,nextStage);
+    container.innerHTML = `<h2>${activeCaptchas[index].title}</h2>`;
+    
+    // Render current stage & pass nextStage + failGame callbacks
+    activeCaptchas[index].render(container, nextStage, failGame);
 }
-
-
 
 async function completeGame() {
     
-    const totalTime = stopTimer;
+    const totalTime = stopTimer();
     const container = document.getElementById('captcha-box');
     
     container.innerHTML = `
@@ -159,7 +119,7 @@ async function completeGame() {
     })
 }
 
-startGame();
+window.addEventListener('DOMContentLoaded', startGame);
 
 function startPetMech() {
     let petHunger = 100;
