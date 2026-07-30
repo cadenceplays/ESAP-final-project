@@ -27,7 +27,7 @@ let currentStage = 0;
 let activeCaptchas = [];
 
 const captchas = [
-    {id: 1,
+    /*{id: 1,
     title: "prove you're human.",
     render: renderStage1
     },
@@ -35,14 +35,14 @@ const captchas = [
     {id: 2,
     title: "confirm intent.",
     render: renderStage2
-    },
+    },*/
     
     {id: 3,
     title: "easy trivia.",
     render: renderStage3
     },
 
-    {id: 4,
+    /*{id: 4,
     title: "wait for it...",
     render: renderStage4
     },
@@ -80,7 +80,7 @@ const captchas = [
     {id: 11,
     title: "connect 4",
     render: renderStage11
-    },
+    },*/
     
 ];
 

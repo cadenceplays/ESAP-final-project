@@ -18,16 +18,10 @@ export function renderStage6(container,nextStage, failGame) {
 
     const input = document.getElementById('cn-input');
 
-    input.addEventListener('paste', (e) => {
-        e.preventDefault();
-        alert("don't even think about it, clanker.")
-    });
-
     document.getElementById('cn-submit').addEventListener('click', () => {
         if (input.value.trim() === targetText) {
             nextStage();
         } else {
-            alert("try again next time, clanker!");
             failGame(); 
         }
     });

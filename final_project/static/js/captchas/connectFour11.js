@@ -69,7 +69,7 @@ export function renderStage11(container,nextStage, failGame) {
             updateBoardUI();
 
             if (checkWin('Y')) {
-                statusText.innerText = "AI won! Resetting test...";
+                statusText.innerText = "AI won!";
                 setTimeout(() => failGame(), 1000);
             } else {
                 playerTurn = true;

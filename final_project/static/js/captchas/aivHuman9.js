@@ -19,7 +19,6 @@ export function renderStage9(container,nextStage, failGame) {
             if (e.target.dataset.correct === "true") {
                 nextStage();
             } else {
-                alert("so you admit you're a robot? hmmm")
                 failGame();
             }
         });

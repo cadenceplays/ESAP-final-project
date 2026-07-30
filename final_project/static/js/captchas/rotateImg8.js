@@ -39,7 +39,6 @@ export function renderStage8(container,nextStage, failGame) {
         if (rotation === 0) {
             nextStage();
         } else {
-            alert(`Object is still rotated (${rotation}°). Align it upright!`);
             failGame();
         }
     });
