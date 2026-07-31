@@ -116,4 +116,4 @@ if __name__ == '__main__':
         init_db()
 
     # TODO: remove dev server
-    app.run(debug=True)
+    app.run()
